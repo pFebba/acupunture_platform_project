@@ -1,18 +1,18 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+﻿import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity('patient')
 export class PatientEntity {
     @PrimaryGeneratedColumn('uuid')
-    id!: string;
+    id: string;
 
     @Column({ type: 'varchar', length: 150, nullable: false })
-    name!: string;
+    name: string;
 
     @Column({ type: 'varchar', length: 50, nullable: true })
     age_profile?: string;
 
     @Column({ type: 'varchar', length: 20, nullable: false })
-    phone!: string;
+    phone: string;
 
     @Column({ type: 'varchar', length: 255, nullable: true })
     email?: string;
