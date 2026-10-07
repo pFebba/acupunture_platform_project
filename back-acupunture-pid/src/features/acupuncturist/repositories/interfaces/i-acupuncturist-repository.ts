@@ -2,7 +2,7 @@ import { AcupuncturistEntity } from "../../acupuncturist.entity";
 
 
 export interface IAcupuncturistRepository {
-  create(user: Partial<AcupuncturistEntity>): Promise<AcupuncturistEntity>;
+  create(acupuncturist: Partial<AcupuncturistEntity>): Promise<AcupuncturistEntity>;
   findByEmail(email: string): Promise<AcupuncturistEntity | null>;
 }
 

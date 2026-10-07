@@ -1,39 +1,34 @@
 import { Module, DynamicModule } from "@nestjs/common";
-import { dbConfig } from "../config/env/db_env.config";
+import { ConfigModule, ConfigService } from "@nestjs/config";
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({})
 export class DatabaseModule {
     static forRoot(): DynamicModule {
-    const config = dbConfig();
-
-    // Se estiver desativado, retorna o módulo sem importar o TypeORM
-    if (!config.enabled) {
-      console.log('⚠️ Conexão com o banco de dados desativada (DATABASE_ENABLED=false).');
-      return {
+      return{
         module: DatabaseModule,
-        imports: [],
-        providers: [],
-        exports: [],
-      };
-    }
+        imports:[
+          TypeOrmModule.forRootAsync({
+            imports:[ConfigModule],
+            inject: [ConfigService],
+            useFactory: (configService: ConfigService) => {
+              const isEnabled = configService.get<boolean>('POSTGRE_ENABLED');
 
-    // Se estiver ativado, inicializa a conexão com o PostgreSQL normalmente
-    return {
-      module: DatabaseModule,
-      imports: [
-        TypeOrmModule.forRootAsync({
-          useFactory: () => ({
-            type: 'postgres',
-            host: config.host,
-            port: config.port,
-            username: config.user,
-            password: config.password,
-            database: config.database,
-            autoLoadEntities: true,
-          }),
-        }),
-      ],
-    };
+              if(isEnabled){
+                return {}
+              }
+              
+              return {
+                type: 'postgres',
+                host: configService.get<string>('POSTGRE_DB_HOST'),
+                port: Number(configService.get<string>('POSTGRE_DB_PORT')),
+                database: configService.get<string>('POSTGRE_DB_NAME'),
+                username: configService.get<string>('POSTGRE_DB_USER'),
+                password: configService.get<string>('POSTGRE_DB_PASSWORD'),
+              }
+            },
+          })
+        ]
+      }
   }
 }
