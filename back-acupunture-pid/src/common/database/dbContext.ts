@@ -13,6 +13,7 @@ export class dbContext{
     }
 
     public getDbConfig(configService: ConfigService){
+        
         return {...configService.get('database')}
     }
 }
