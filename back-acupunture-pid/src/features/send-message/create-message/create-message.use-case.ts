@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IMessageRepository } from '../repositories/interfaces/i-message-repository';
+import { MessageRepository } from '../message-repository';
 import { MessageEntity } from '../message.entity';
 import { CreateMessageDTO } from './create-message.dto';
 
 @Injectable()
 export class CreateMessageUseCase {
     constructor(
-        @Inject(IMessageRepository)
-        private readonly messageRepository: IMessageRepository,
+        @Inject(MessageRepository)
+        private readonly messageRepository: MessageRepository,
     ) {}
 
     async execute(dto: CreateMessageDTO): Promise<MessageEntity> {

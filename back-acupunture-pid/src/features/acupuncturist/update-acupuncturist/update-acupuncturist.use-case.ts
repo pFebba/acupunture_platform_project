@@ -1,6 +1,6 @@
 import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
-import { IAcupuncturistRepository } from '../repositories/interfaces/i-acupuncturist-repository';
+import { AcupuncturistRepository } from '../acupuncturist-repository';
 import { AcupuncturistEntity } from '../../../domain/entities/acupuncturist.entity';
 import { UpdateAcupuncturistDTO } from './update-acupuncturist.dto';
 
@@ -9,8 +9,8 @@ const SALT_ROUNDS = 10;
 @Injectable()
 export class UpdateAcupuncturistUseCase {
   constructor(
-    @Inject(IAcupuncturistRepository)
-    private readonly acupuncturistRepository: IAcupuncturistRepository,
+    @Inject(AcupuncturistRepository)
+    private readonly acupuncturistRepository: AcupuncturistRepository,
   ) {}
 
   async execute(id: string, dto: UpdateAcupuncturistDTO): Promise<AcupuncturistEntity> {

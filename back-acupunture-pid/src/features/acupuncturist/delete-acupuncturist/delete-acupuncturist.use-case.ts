@@ -1,11 +1,11 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { IAcupuncturistRepository } from '../repositories/interfaces/i-acupuncturist-repository';
+import { AcupuncturistRepository } from '../acupuncturist-repository';
 
 @Injectable()
 export class DeleteAcupuncturistUseCase {
   constructor(
-    @Inject(IAcupuncturistRepository)
-    private readonly acupuncturistRepository: IAcupuncturistRepository,
+    @Inject(AcupuncturistRepository)
+    private readonly acupuncturistRepository: AcupuncturistRepository,
   ) {}
 
   async execute(id: string): Promise<void> {

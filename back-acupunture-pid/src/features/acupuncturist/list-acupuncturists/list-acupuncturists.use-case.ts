@@ -1,12 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IAcupuncturistRepository } from '../repositories/interfaces/i-acupuncturist-repository';
+import { AcupuncturistRepository } from '../acupuncturist-repository';
 import { AcupuncturistEntity } from '../../../domain/entities/acupuncturist.entity';
 
 @Injectable()
 export class ListAcupuncturistsUseCase {
   constructor(
-    @Inject(IAcupuncturistRepository)
-    private readonly acupuncturistRepository: IAcupuncturistRepository,
+    @Inject(AcupuncturistRepository)
+    private readonly acupuncturistRepository: AcupuncturistRepository,
   ) {}
 
   async execute(): Promise<AcupuncturistEntity[]> {

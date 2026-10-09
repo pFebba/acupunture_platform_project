@@ -1,13 +1,13 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-import { IAppointmentRepository } from '../repositories/interfaces/i-appointment-repository';
+import { AppointmentRepository } from '../appointment-repository';
 import { AppointmentEntity } from '../appointment.entity';
 import { CreateAppointmentDTO } from './create-appointment.dto';
 
 @Injectable()
 export class CreateAppointmentUseCase {
     constructor(
-        @Inject(IAppointmentRepository)
-        private readonly appointmentRepository: IAppointmentRepository,
+        @Inject(AppointmentRepository)
+        private readonly appointmentRepository: AppointmentRepository,
     ) {}
 
     async execute(dto: CreateAppointmentDTO): Promise<AppointmentEntity> {

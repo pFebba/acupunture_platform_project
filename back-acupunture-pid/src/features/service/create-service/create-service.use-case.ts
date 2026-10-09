@@ -1,12 +1,12 @@
 ﻿import { Inject, Injectable } from '@nestjs/common';
-import { IServiceRepository } from '../repositories/interfaces/i-service-repository';
+import { ServiceRepository } from '../service-repository';
 import { ServiceEntity } from '../service.entity';
 
 @Injectable()
 export class CreateServiceUseCase {
     constructor(
-        @Inject(IServiceRepository)
-        private readonly serviceRepository: IServiceRepository,
+        @Inject(ServiceRepository)
+        private readonly serviceRepository: ServiceRepository,
     ) {}
 
     async execute(type: string): Promise<ServiceEntity> {

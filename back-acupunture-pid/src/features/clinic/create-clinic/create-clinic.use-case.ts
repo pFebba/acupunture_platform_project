@@ -1,12 +1,12 @@
 import { Inject, Injectable } from '@nestjs/common';
-import { IClinicRepository } from '../repositories/interfaces/i-clinic-repository';
+import { ClinicRepository } from '../clinic-repository';
 import { ClinicEntity } from '../clinic.entity';
 
 @Injectable()
 export class CreateClinicUseCase {
     constructor(
-        @Inject(IClinicRepository)
-        private readonly clinicRepository: IClinicRepository,
+        @Inject(ClinicRepository)
+        private readonly clinicRepository: ClinicRepository,
     ) {}
 
     async execute(

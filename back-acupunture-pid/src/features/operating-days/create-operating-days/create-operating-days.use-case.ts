@@ -1,13 +1,13 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-import { IOperatingDaysRepository } from '../repositories/interfaces/i-operating-days-repository';
+import { OperatingDaysRepository } from '../operating-days-repository';
 import { OperatingDaysEntity } from '../operating-days.entity';
 import { CreateOperatingDaysDTO } from './create-operating-days.dto';
 
 @Injectable()
 export class CreateOperatingDaysUseCase {
     constructor(
-        @Inject(IOperatingDaysRepository)
-        private readonly operatingDaysRepository: IOperatingDaysRepository,
+        @Inject(OperatingDaysRepository)
+        private readonly operatingDaysRepository: OperatingDaysRepository,
     ) {}
 
     async execute(dto: CreateOperatingDaysDTO): Promise<OperatingDaysEntity> {
