@@ -1,17 +1,23 @@
 import { Module } from '@nestjs/common';
-import { DatabaseModule } from './common/database/database.module';
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
 import configuration from './common/config/configuration';
+import { AcupuncturistModule } from './features/acupuncturist/acupuncturist.module';
 
 @Module({
   imports: [
-    DatabaseModule.forRoot(),
-    ConfigModule.forRoot(
-      {
-        load:[configuration],
-        isGlobal:true
-      }
-    )
+    ConfigModule.forRoot({
+      load: [configuration],
+      isGlobal: true,
+    }),
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        ...configService.get('database'),
+      }),
+    }),
+    AcupuncturistModule,
   ],
   controllers: [],
   providers: [],
