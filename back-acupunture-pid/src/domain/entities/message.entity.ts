@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
-import { MessageChannel } from "./message-channel.enum";
+import { MessageChannel } from "../enums/message-channel.enum";
 
 @Entity('message')
 export class MessageEntity {
