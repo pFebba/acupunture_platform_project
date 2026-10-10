@@ -1,7 +1,7 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { AppointmentRepository } from '../appointment-repository';
-import { AppointmentEntity } from '../appointment.entity';
 import { CreateAppointmentDTO } from './create-appointment.dto';
+import { AppointmentEntity } from 'src/domain/entities/appointment.entity';
 
 @Injectable()
 export class CreateAppointmentUseCase {

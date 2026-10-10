@@ -2,7 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BaseRepository, IBaseRepository } from '../../common/repositories/base-repository';
-import { AppointmentEntity } from './appointment.entity';
+import { AppointmentEntity } from 'src/domain/entities/appointment.entity';
+
 
 export interface IAppointmentRepository extends IBaseRepository<AppointmentEntity> {}
 

@@ -9,9 +9,14 @@ import {
   ParseUUIDPipe,
   Post,
   Put,
+  Query,
 } from '@nestjs/common';
-import { ListAcupuncturistsUseCase } from './list-acupuncturists/list-acupuncturists.use-case';
+import { ListAcupuncturistsUseCase } from './get-acupuncturist/list-acupuncturists.use-case';
 import { GetAcupuncturistUseCase } from './get-acupuncturist/get-acupuncturist.use-case';
+import { GetAcupuncturistByCpfUseCase } from './get-acupuncturist/get-acupuncturist-by-cpf.use-case';
+import { GetAcupuncturistByEmailUseCase } from './get-acupuncturist/get-acupuncturist-by-email.use-case';
+import { GetAcupuncturistByEmailWithPasswordUseCase } from './get-acupuncturist/get-acupuncturist-by-email-with-password.use-case';
+import { SearchAcupuncturistsByNameUseCase } from './get-acupuncturist/search-acupuncturists-by-name.use-case';
 import { UpdateAcupuncturistUseCase } from './update-acupuncturist/update-acupuncturist.use-case';
 import { DeleteAcupuncturistUseCase } from './delete-acupuncturist/delete-acupuncturist.use-case';
 import { UpdateAcupuncturistDTO } from './update-acupuncturist/update-acupuncturist.dto';
@@ -27,6 +32,10 @@ export class AcupuncturistController {
     private readonly createUseCase: CreateAcupuncturistUseCase,
     private readonly listUseCase: ListAcupuncturistsUseCase,
     private readonly getUseCase: GetAcupuncturistUseCase,
+    private readonly getByCpfUseCase: GetAcupuncturistByCpfUseCase,
+    private readonly getByEmailUseCase: GetAcupuncturistByEmailUseCase,
+    private readonly getByEmailWithPasswordUseCase: GetAcupuncturistByEmailWithPasswordUseCase,
+    private readonly searchByNameUseCase: SearchAcupuncturistsByNameUseCase,
     private readonly updateUseCase: UpdateAcupuncturistUseCase,
     private readonly deleteUseCase: DeleteAcupuncturistUseCase,
   ) {}
@@ -42,6 +51,30 @@ export class AcupuncturistController {
   async list(): Promise<GetAcupuncturistResponseDto[]> {
     const entities = await this.listUseCase.execute();
     return entities.map((entity) => GetAcupuncturistResponseDto.fromEntity(entity));
+  }
+
+  @Get('search')
+  async searchByName(@Query('name') name: string): Promise<GetAcupuncturistResponseDto[]> {
+    const entities = await this.searchByNameUseCase.execute(name);
+    return entities.map((entity) => GetAcupuncturistResponseDto.fromEntity(entity));
+  }
+
+  @Get('cpf/:cpf')
+  async getByCpf(@Param('cpf') cpf: string): Promise<GetAcupuncturistResponseDto> {
+    const entity = await this.getByCpfUseCase.execute(cpf);
+    return GetAcupuncturistResponseDto.fromEntity(entity);
+  }
+
+  @Get('email/:email')
+  async getByEmail(@Param('email') email: string): Promise<GetAcupuncturistResponseDto> {
+    const entity = await this.getByEmailUseCase.execute(email);
+    return GetAcupuncturistResponseDto.fromEntity(entity);
+  }
+
+  @Get('email-with-password/:email')
+  async getByEmailWithPassword(@Param('email') email: string): Promise<GetAcupuncturistResponseDto> {
+    const entity = await this.getByEmailWithPasswordUseCase.execute(email);
+    return GetAcupuncturistResponseDto.fromEntity(entity);
   }
 
   @Get(':id')

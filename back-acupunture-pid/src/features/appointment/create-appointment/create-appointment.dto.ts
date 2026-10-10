@@ -1,5 +1,6 @@
 import { IsUUID, IsDateString, IsEnum, IsOptional } from 'class-validator';
 import { AppointmentStatus } from '../appointment-status.enum';
+import { Transform } from 'class-transformer';
 
 export class CreateAppointmentDTO {
     @IsUUID('all', { message: 'O acupunturista deve ser um UUID válido' })
@@ -22,5 +23,6 @@ export class CreateAppointmentDTO {
 
     @IsOptional()
     @IsEnum(AppointmentStatus, { message: 'Status inválido' })
-    status?: AppointmentStatus;
+    @Transform(({value}) => value ?? AppointmentStatus.SCHEDULED)
+    status: AppointmentStatus = AppointmentStatus.SCHEDULED;
 }
