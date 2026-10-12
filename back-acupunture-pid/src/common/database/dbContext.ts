@@ -1,5 +1,6 @@
 import { ConfigService } from "@nestjs/config";
 
+//configuração banco de dados
 export class dbContext{
     private static dbContext: dbContext
 
