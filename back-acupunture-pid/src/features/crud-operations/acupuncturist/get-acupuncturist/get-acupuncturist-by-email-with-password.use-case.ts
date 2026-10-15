@@ -10,7 +10,7 @@ export class GetAcupuncturistByEmailWithPasswordUseCase {
   ) {}
 
   async execute(email: string): Promise<AcupuncturistEntity> {
-    const acupuncturist = await this.acupuncturistRepository.findByEmailWithPassword(email);
+    const acupuncturist = await this.acupuncturistRepository.findCredentials(email);
     if (!acupuncturist) {
       throw new NotFoundException('Acupunturista não encontrado');
     }
