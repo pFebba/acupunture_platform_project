@@ -1,7 +1,7 @@
 import { Global, Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { AuthenticationModule } from "@nestjs/authentication";
-import { AuthModule } from "./security/auth.module";
+import { AuthModule } from "./auth/auth.module";
 import { DatabaseModule } from "./database/database.module";
 
 @Global()

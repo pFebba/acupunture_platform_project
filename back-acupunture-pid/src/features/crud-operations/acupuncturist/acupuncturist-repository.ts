@@ -3,7 +3,7 @@ import { AcupuncturistEntity } from "../../../domain/entities/acupuncturist.enti
 import { InjectRepository } from "@nestjs/typeorm";
 import { ILike, Repository } from "typeorm";
 import { BaseRepository } from "../../../common/repositories/base-repository";
-import { IAcupuncturistRepository } from "src/common/security/i-acupuncturist-repository";
+import { IAcupuncturistRepository } from "src/common/auth/i-acupuncturist-repository";
 
 
 @Injectable()
