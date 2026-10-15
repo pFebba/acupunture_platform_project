@@ -13,19 +13,12 @@ import { AppointmentModule } from './features/crud-operations/appointment/appoin
 import { MessageModule } from './features/crud-operations/message/message.module';
 import { dbContext } from './common/database/dbContext';
 
-const dbInstance = dbContext.getDbContext()
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       load: [configuration],
       isGlobal: true,
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (configService: ConfigService) =>
-        dbInstance.getDbConfig(configService),
     }),
     AcupuncturistModule,
     PatientModule,
