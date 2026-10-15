@@ -2,14 +2,9 @@ import { Injectable } from "@nestjs/common";
 import { AcupuncturistEntity } from "../../../domain/entities/acupuncturist.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ILike, Repository } from "typeorm";
-import { BaseRepository, IBaseRepository } from "../../../common/repositories/base-repository";
+import { BaseRepository } from "../../../common/repositories/base-repository";
+import { IAcupuncturistRepository } from "src/common/security/i-acupuncturist-repository";
 
-export interface IAcupuncturistRepository extends IBaseRepository<AcupuncturistEntity> {
-  findByEmail(email: string): Promise<AcupuncturistEntity | null>;
-  findByCpf(cpf: string): Promise<AcupuncturistEntity | null>;
-  findByEmailWithPassword(email: string): Promise<AcupuncturistEntity | null>;
-  findByName(name: string): Promise<AcupuncturistEntity[]>;
-}
 
 @Injectable()
 export class AcupuncturistRepository extends BaseRepository<AcupuncturistEntity> implements IAcupuncturistRepository {
@@ -28,7 +23,7 @@ export class AcupuncturistRepository extends BaseRepository<AcupuncturistEntity>
     return this.getRepository().findOne({ where: { email } });
   }
 
-  findByEmailWithPassword(email: string): Promise<AcupuncturistEntity | null> {
+  findCredentials(email: string): Promise<AcupuncturistEntity | null> {
     return this.getRepository()
       .createQueryBuilder('a')
       .addSelect('a.password_hash')

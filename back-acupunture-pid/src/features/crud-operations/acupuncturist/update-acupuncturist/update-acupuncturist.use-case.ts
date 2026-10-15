@@ -1,5 +1,5 @@
 import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
+import { PasswordHasher } from '@nestjs/authentication'; 
 import { AcupuncturistRepository } from '../acupuncturist-repository';
 import { AcupuncturistEntity } from '../../../../domain/entities/acupuncturist.entity';
 import { UpdateAcupuncturistDTO } from './update-acupuncturist.dto';
@@ -11,6 +11,7 @@ export class UpdateAcupuncturistUseCase {
   constructor(
     @Inject(AcupuncturistRepository)
     private readonly acupuncturistRepository: AcupuncturistRepository,
+    private readonly passwordHasher: PasswordHasher,
   ) {}
 
   async execute(id: string, dto: UpdateAcupuncturistDTO): Promise<AcupuncturistEntity> {
@@ -38,7 +39,7 @@ export class UpdateAcupuncturistUseCase {
     if (dto.cpf !== undefined) data.cpf = dto.cpf;
     if (dto.email !== undefined) data.email = dto.email;
     if (dto.phone !== undefined) data.phone = dto.phone;
-    if (dto.password) data.password_hash = await bcrypt.hash(dto.password, SALT_ROUNDS);
+    if (dto.password) data.password_hash = await this.passwordHasher.hash(dto.password)
 
     if (Object.keys(data).length === 0) {
       return acupuncturist;

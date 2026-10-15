@@ -1,6 +1,6 @@
 import { ConflictException, Inject, Injectable } from '@nestjs/common';
-import * as bcrypt from 'bcrypt';
-import { AcupuncturistRepository, IAcupuncturistRepository } from '../acupuncturist-repository';
+import { PasswordHasher } from '@nestjs/authentication';
+import { AcupuncturistRepository } from '../acupuncturist-repository';
 import { AcupuncturistEntity } from '../../../../domain/entities/acupuncturist.entity';
 import { CreateAcupuncturistDTO } from './create-acupuncturist.dto';
 
@@ -11,6 +11,7 @@ export class CreateAcupuncturistUseCase {
   constructor(
     @Inject(AcupuncturistRepository)
     private readonly acupuncturisRepository: AcupuncturistRepository,
+    private readonly passwordHasher: PasswordHasher
   ) {}
 
   async execute(dto: CreateAcupuncturistDTO): Promise<AcupuncturistEntity> {
@@ -19,7 +20,7 @@ export class CreateAcupuncturistUseCase {
       throw new ConflictException('Usuário já cadastrado com este e-mail');
     }
 
-    const password_hash = await bcrypt.hash(dto.password, SALT_ROUNDS);
+    const password_hash = await this.passwordHasher.hash(dto.password)
 
     return await this.acupuncturisRepository.create({
       name: dto.name,
