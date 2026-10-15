@@ -1,5 +1,5 @@
 import { AcupuncturistEntity } from "src/domain/entities/acupuncturist.entity";
-import { IBaseRepository } from "../repositories/base-repository";
+import { IBaseRepository } from "./base-repository";
 
 export interface IAcupuncturistRepository extends IBaseRepository<AcupuncturistEntity> {
   findByEmail(email: string): Promise<AcupuncturistEntity | null>;

@@ -1,5 +1,5 @@
 import { PasswordHasher } from "@nestjs/authentication";
-import { IAcupuncturistRepository } from "./i-acupuncturist-repository";
+import { IAcupuncturistRepository } from "../repositories/i-acupuncturist-repository";
 import { NotFoundException, UnauthorizedException } from "@nestjs/common";
 import { AcupuncturistEntity } from "src/domain/entities/acupuncturist.entity";
 

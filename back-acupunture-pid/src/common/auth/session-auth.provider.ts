@@ -1,7 +1,7 @@
 import { AuthenticationRegistry, SessionCookieProvider, SessionRecord } from "@nestjs/authentication";
 import { Injectable } from "@nestjs/common";
 import { AcupuncturistEntity } from "src/domain/entities/acupuncturist.entity";
-import * as iAcupuncturistRepository from "./i-acupuncturist-repository";
+import * as iAcupuncturistRepository from "../repositories/i-acupuncturist-repository";
 
 @Injectable()
 export class SessionAuth extends SessionCookieProvider<AcupuncturistEntity> {

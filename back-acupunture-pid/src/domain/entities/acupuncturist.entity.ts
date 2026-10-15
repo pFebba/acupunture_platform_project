@@ -11,6 +11,9 @@ export class AcupuncturistEntity{
     @Column({ type: 'varchar', length: 255, unique: true, nullable: false })
     email: string;
 
+    @Column({type: 'boolean', nullable:false})
+    emailVerified: boolean
+
     @Column({ type: 'varchar', length: 255, nullable: false, select: false })
     password_hash: string;
 

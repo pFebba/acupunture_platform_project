@@ -11,6 +11,9 @@ export class CreateAcupuncturistResponseDto{
     @Expose()
     email: string;
 
+    @Expose()
+    emailVerified: boolean
+
     static fromEntity(entity: any): CreateAcupuncturistResponseDto {
     return plainToInstance(CreateAcupuncturistResponseDto, entity, {
       excludeExtraneousValues: true,

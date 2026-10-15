@@ -14,5 +14,8 @@ export default () => ({
     password: process.env.POSTGRE_DB_PASSWORD,
     autoLoadEntities: true,
     synchronize: process.env.NODE_ENV === 'local',
+  },
+  auth:{
+    isEnabled: process.env.AUTH_ENABLED,
   }
 });

@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsEmail, MinLength, MaxLength, IsOptional } from 'class-validator'
+import { IsString, IsNotEmpty, IsEmail, MinLength, MaxLength, IsOptional, IsBoolean } from 'class-validator'
 import { IsCpf } from 'src/common/decorators/is-cpf.decorator'
 
 
@@ -16,6 +16,9 @@ export class CreateAcupuncturistDTO{
     @IsEmail({}, { message: 'Forneça um e-mail válido' })
     @IsNotEmpty({ message: 'O e-mail é obrigatório' })
     email: string
+
+    @IsBoolean()
+    emailVerified: boolean
 
     @IsNotEmpty({ message: 'A senha não pode estar vazia.' })
     @IsString({ message: 'A senha deve ser uma string de texto.' })
