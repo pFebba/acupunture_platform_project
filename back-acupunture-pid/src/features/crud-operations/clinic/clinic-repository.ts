@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BaseRepository, IBaseRepository } from '../../../common/repositories/base-repository';
-import { ClinicEntity } from 'src/domain/entities/clinic.entity';
+import { ClinicEntity } from 'src/common/domain/entities/clinic.entity';
 
 export interface IClinicRepository extends IBaseRepository<ClinicEntity> {}
 

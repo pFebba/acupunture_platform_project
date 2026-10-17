@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ServiceEntity } from '../../../domain/entities/service.entity';
+import { ServiceEntity } from '../../../common/domain/entities/service.entity';
 import { ServiceController } from './service.controller';
 import { ServiceRepository } from './service-repository';
 import { CreateServiceUseCase } from './create-service/create-service.use-case';

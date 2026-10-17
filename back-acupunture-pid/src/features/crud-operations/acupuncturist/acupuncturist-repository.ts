@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { AcupuncturistEntity } from "../../../domain/entities/acupuncturist.entity";
+import { AcupuncturistEntity } from "../../../common/domain/entities/acupuncturist.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { ILike, Repository } from "typeorm";
 import { BaseRepository } from "../../../common/repositories/base-repository";

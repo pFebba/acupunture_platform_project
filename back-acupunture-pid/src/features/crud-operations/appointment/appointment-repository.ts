@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Between, FindOptionsWhere, MoreThanOrEqual, LessThan, Repository } from 'typeorm';
 import { BaseRepository, IBaseRepository } from '../../../common/repositories/base-repository';
-import { AppointmentEntity } from 'src/domain/entities/appointment.entity';
-import { PatientEntity } from 'src/domain/entities/patient.entity';
+import { AppointmentEntity } from 'src/common/domain/entities/appointment.entity';
+import { PatientEntity } from 'src/common/domain/entities/patient.entity';
 
 export interface IAppointmentRepository extends IBaseRepository<AppointmentEntity> {
     findByPatient(patientId: string, from?: Date, to?: Date): Promise<AppointmentEntity[]>;

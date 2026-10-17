@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BaseRepository, IBaseRepository } from '../../../common/repositories/base-repository';
-import { ClinicServiceAcupuncturistEntity } from 'src/domain/entities/clinic-service-acupuncturist.entity';
+import { ClinicServiceAcupuncturistEntity } from 'src/common/domain/entities/clinic-service-acupuncturist.entity';
 
 export interface IClinicServiceAcupuncturistRepository extends IBaseRepository<ClinicServiceAcupuncturistEntity> {
     findByClinicAndAcupuncturist(clinicId: string, acupuncturistId: string): Promise<ClinicServiceAcupuncturistEntity[]>;

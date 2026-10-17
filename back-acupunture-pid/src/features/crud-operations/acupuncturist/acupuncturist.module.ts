@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AcupuncturistEntity } from '../../../domain/entities/acupuncturist.entity';
+import { AcupuncturistEntity } from '../../../common/domain/entities/acupuncturist.entity';
 import { AcupuncturistController } from './acupuncturist.controller';
 import { CreateAcupuncturistUseCase } from './create-acupuncturist/create-acupuncturist.use-case';
 import { ListAcupuncturistsUseCase } from './get-acupuncturist/list-acupuncturists.use-case';

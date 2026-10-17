@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { OperatingDaysRepository } from '../operating-days-repository';
-import { OperatingDaysEntity } from 'src/domain/entities/operating-days.entity';
+import { OperatingDaysEntity } from 'src/common/domain/entities/operating-days.entity';
 import { CreateOperatingDaysDTO } from './create-operating-days.dto';
 
 @Injectable()

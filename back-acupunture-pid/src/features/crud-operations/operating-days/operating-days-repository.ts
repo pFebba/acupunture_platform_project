@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BaseRepository, IBaseRepository } from '../../../common/repositories/base-repository';
-import { OperatingDaysEntity } from 'src/domain/entities/operating-days.entity';
+import { OperatingDaysEntity } from 'src/common/domain/entities/operating-days.entity';
 
 export interface IOperatingDaysRepository extends IBaseRepository<OperatingDaysEntity> {
     findByClinic(clinicId: string): Promise<OperatingDaysEntity[]>;

@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable, NotFoundException } from "@nestjs/common";
 import { AppointmentRepository } from "../appointment-repository";
-import { AppointmentEntity } from "src/domain/entities/appointment.entity";
+import { AppointmentEntity } from "src/common/domain/entities/appointment.entity";
 import { UpdateAppointmentDTO } from "./update-appointment.dto";
 
 @Injectable()

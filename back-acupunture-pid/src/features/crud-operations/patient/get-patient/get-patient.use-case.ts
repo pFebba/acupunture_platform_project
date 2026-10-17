@@ -1,6 +1,6 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { PatientRepository } from '../patient-repository';
-import { PatientEntity } from 'src/domain/entities/patient.entity';
+import { PatientEntity } from 'src/common/domain/entities/patient.entity';
 
 @Injectable()
 export class GetPatientUseCase {

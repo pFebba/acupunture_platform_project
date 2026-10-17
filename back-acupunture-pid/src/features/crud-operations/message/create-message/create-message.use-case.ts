@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { MessageRepository } from '../message-repository';
 
 import { CreateMessageDTO } from './create-message.dto';
-import { MessageEntity } from 'src/domain/entities/message.entity';
+import { MessageEntity } from 'src/common/domain/entities/message.entity';
 
 @Injectable()
 export class CreateMessageUseCase {

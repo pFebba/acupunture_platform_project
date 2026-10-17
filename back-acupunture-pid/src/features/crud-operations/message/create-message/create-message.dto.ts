@@ -1,5 +1,5 @@
 import { IsUUID, IsString, IsNotEmpty, IsEnum } from 'class-validator';
-import { MessageChannel } from '../../../../domain/enums/message-channel.enum';
+import { MessageChannel } from '../../../../common/domain/enums/message-channel.enum';
 
 export class CreateMessageDTO {
     @IsUUID('all', { message: 'O agendamento deve ser um UUID válido' })

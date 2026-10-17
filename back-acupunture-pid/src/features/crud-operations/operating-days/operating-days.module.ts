@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { OperatingDaysEntity } from '../../../domain/entities/operating-days.entity';
+import { OperatingDaysEntity } from '../../../common/domain/entities/operating-days.entity';
 import { OperatingDaysController } from './operating-days.controller';
 import { OperatingDaysRepository } from './operating-days-repository';
 import { CreateOperatingDaysUseCase } from './create-operating-days/create-operating-days.use-case';

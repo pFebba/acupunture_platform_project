@@ -1,4 +1,4 @@
-import { AcupuncturistEntity } from "src/domain/entities/acupuncturist.entity";
+import { AcupuncturistEntity } from "src/common/domain/entities/acupuncturist.entity";
 import { IBaseRepository } from "./base-repository";
 
 export interface IAcupuncturistRepository extends IBaseRepository<AcupuncturistEntity> {

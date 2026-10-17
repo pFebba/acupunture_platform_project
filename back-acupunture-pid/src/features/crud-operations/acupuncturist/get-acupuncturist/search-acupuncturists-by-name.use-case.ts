@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AcupuncturistRepository } from '../acupuncturist-repository';
-import { AcupuncturistEntity } from '../../../../domain/entities/acupuncturist.entity';
+import { AcupuncturistEntity } from '../../../../common/domain/entities/acupuncturist.entity';
 
 @Injectable()
 export class SearchAcupuncturistsByNameUseCase {

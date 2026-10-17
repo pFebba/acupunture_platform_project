@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BaseRepository, IBaseRepository } from '../../../common/repositories/base-repository';
-import { ServiceEntity } from 'src/domain/entities/service.entity';
+import { ServiceEntity } from 'src/common/domain/entities/service.entity';
 
 export interface IServiceRepository extends IBaseRepository<ServiceEntity> {
     findByType(type: string): Promise<ServiceEntity | null>;

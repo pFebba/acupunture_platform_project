@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { AppointmentRepository } from '../appointment-repository';
-import { AppointmentEntity } from 'src/domain/entities/appointment.entity';
+import { AppointmentEntity } from 'src/common/domain/entities/appointment.entity';
 
 @Injectable()
 export class GetAppointmentsByPatientNameUseCase {

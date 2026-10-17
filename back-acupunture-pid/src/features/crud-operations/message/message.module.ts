@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MessageEntity } from '../../../domain/entities/message.entity';
+import { MessageEntity } from '../../../common/domain/entities/message.entity';
 import { MessageController } from './message.controller';
 import { MessageRepository } from './message-repository';
 import { CreateMessageUseCase } from './create-message/create-message.use-case';

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AppointmentEntity } from '../../../domain/entities/appointment.entity';
+import { AppointmentEntity } from '../../../common/domain/entities/appointment.entity';
 import { AppointmentController } from './appointment.controller';
 import { AppointmentRepository } from './appointment-repository';
 import { CreateAppointmentUseCase } from './create-appointment/create-appointment.use-case';

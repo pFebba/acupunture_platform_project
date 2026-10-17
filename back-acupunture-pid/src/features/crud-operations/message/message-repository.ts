@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { BaseRepository, IBaseRepository } from '../../../common/repositories/base-repository';
-import { MessageEntity } from 'src/domain/entities/message.entity';
+import { MessageEntity } from 'src/common/domain/entities/message.entity';
 
 export interface IMessageRepository extends IBaseRepository<MessageEntity> {
     findByAppointment(appointmentId: string): Promise<MessageEntity[]>;

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PatientEntity } from '../../../domain/entities/patient.entity';
+import { PatientEntity } from '../../../common/domain/entities/patient.entity';
 import { PatientController } from './patient.controller';
 import { PatientRepository } from './patient-repository';
 import { CreatePatientUseCase } from './create-patient/create-patient.use-case';

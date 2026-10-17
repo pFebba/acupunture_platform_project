@@ -14,7 +14,7 @@ import configuration from "./config/configuration";
         isGlobal: true,
       }),
       DatabaseModule,
-      AuthModule.register()
+      AuthModule
     ],
     providers:[],
     exports:[DatabaseModule]

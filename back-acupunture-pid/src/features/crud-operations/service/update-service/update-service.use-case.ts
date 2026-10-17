@@ -1,6 +1,6 @@
 import { ConflictException, Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { ServiceRepository } from '../service-repository';
-import { ServiceEntity } from 'src/domain/entities/service.entity';
+import { ServiceEntity } from 'src/common/domain/entities/service.entity';
 import { UpdateServiceDTO } from './update-service.dto';
 
 @Injectable()

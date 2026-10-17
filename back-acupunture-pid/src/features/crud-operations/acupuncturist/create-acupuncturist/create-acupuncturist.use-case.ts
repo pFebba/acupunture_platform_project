@@ -1,7 +1,7 @@
 import { ConflictException, Inject, Injectable } from '@nestjs/common';
 import { PasswordHasher } from '@nestjs/authentication';
 import { AcupuncturistRepository } from '../acupuncturist-repository';
-import { AcupuncturistEntity } from '../../../../domain/entities/acupuncturist.entity';
+import { AcupuncturistEntity } from '../../../../common/domain/entities/acupuncturist.entity';
 import { CreateAcupuncturistDTO } from './create-acupuncturist.dto';
 
 const SALT_ROUNDS = 10;

@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@nestjs/common';
 import { ClinicRepository } from '../clinic-repository';
-import { ClinicEntity } from 'src/domain/entities/clinic.entity';
+import { ClinicEntity } from 'src/common/domain/entities/clinic.entity';
 
 @Injectable()
 export class CreateClinicUseCase {

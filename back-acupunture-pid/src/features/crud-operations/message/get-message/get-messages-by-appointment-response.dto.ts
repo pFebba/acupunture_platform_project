@@ -1,5 +1,5 @@
 import { Exclude, Expose, plainToInstance } from 'class-transformer';
-import { MessageChannel } from '../../../../domain/enums/message-channel.enum';
+import { MessageChannel } from '../../../../common/domain/enums/message-channel.enum';
 
 @Exclude()
 export class GetMessagesByAppointmentResponseDTO {
