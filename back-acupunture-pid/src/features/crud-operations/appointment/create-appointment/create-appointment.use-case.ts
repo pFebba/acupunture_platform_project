@@ -11,15 +11,15 @@ export class CreateAppointmentUseCase {
     ) {}
 
     async execute(dto: CreateAppointmentDTO): Promise<AppointmentEntity> {
-        const entity = this.appointmentRepository.findByPatient(dto.patient_id)
+        const existingAppointments = await this.appointmentRepository.findByPatient(dto.patient_id)
         const start = new Date(dto.start_datetime);
         const end = new Date(dto.end_datetime);
 
         if (end <= start) {
             throw new BadRequestException('A data de fim deve ser posterior à data de início');
         }
-        
-        if(entity){
+
+        if(existingAppointments.length > 0){
             throw new ConflictException('Um agendamento já foi marcado para este paciente')
         }
 
